@@ -8,51 +8,44 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
 
-  const products = [
-    {
-      id: 1,
-      name: 'Стейк Рибай',
-      category: 'Говядина',
-      price: 1890,
-      image: 'https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/7004dd2f-3078-4cee-8f20-dca61ed59a3c.jpg',
-      badge: 'Хит продаж'
-    },
-    {
-      id: 2,
-      name: 'Свиная корейка',
-      category: 'Свинина',
-      price: 890,
-      image: 'https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/726aa8b9-76f8-4cfa-bd14-a98a2c92db76.jpg',
-      badge: 'Акция'
-    },
-    {
-      id: 3,
-      name: 'Куриное филе',
-      category: 'Птица',
-      price: 490,
-      image: 'https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/726aa8b9-76f8-4cfa-bd14-a98a2c92db76.jpg',
-      badge: null
-    },
-    {
-      id: 4,
-      name: 'Вырезка премиум',
-      category: 'Говядина',
-      price: 2490,
-      image: 'https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/7004dd2f-3078-4cee-8f20-dca61ed59a3c.jpg',
-      badge: 'Премиум'
-    }
-  ];
+  const menuItems = {
+    shashlik: [
+      { id: 1, name: 'Шашлык из свинины', price: 450, weight: '200г', description: 'Сочное мясо, маринованное в специях' },
+      { id: 2, name: 'Шашлык из курицы', price: 380, weight: '200г', description: 'Нежная куриная грудка на углях' },
+      { id: 3, name: 'Шашлык из баранины', price: 520, weight: '200г', description: 'Классический кавказский шашлык' },
+      { id: 4, name: 'Шашлык из говядины', price: 490, weight: '200г', description: 'Премиальная говяжья вырезка' },
+      { id: 5, name: 'Люля-кебаб', price: 350, weight: '150г', description: 'Рубленое мясо с пряностями' },
+      { id: 6, name: 'Шашлык ассорти', price: 650, weight: '300г', description: 'Микс из разных видов мяса' }
+    ],
+    shawarma: [
+      { id: 7, name: 'Шаурма куриная', price: 250, weight: '350г', description: 'С курицей, овощами и соусом' },
+      { id: 8, name: 'Шаурма говяжья', price: 280, weight: '350г', description: 'С говядиной и свежими овощами' },
+      { id: 9, name: 'Шаурма острая', price: 270, weight: '350г', description: 'Острый соус и специи' },
+      { id: 10, name: 'Шаурма вегетарианская', price: 220, weight: '300г', description: 'Овощи на гриле с соусом' },
+      { id: 11, name: 'Шаурма мега', price: 350, weight: '500г', description: 'Двойная порция мяса' }
+    ],
+    hot: [
+      { id: 12, name: 'Плов узбекский', price: 320, weight: '350г', description: 'Классический плов с бараниной' },
+      { id: 13, name: 'Лагман', price: 290, weight: '400г', description: 'Лапша с мясом и овощами' },
+      { id: 14, name: 'Манты', price: 280, weight: '250г', description: 'Паровые манты с мясом' },
+      { id: 15, name: 'Хинкали', price: 260, weight: '250г', description: 'Грузинские хинкали с сочной начинкой' },
+      { id: 16, name: 'Долма', price: 240, weight: '200г', description: 'Виноградные листья с начинкой' },
+      { id: 17, name: 'Харчо', price: 220, weight: '350г', description: 'Острый грузинский суп' }
+    ],
+    sauces: [
+      { id: 18, name: 'Соус чесночный', price: 50, weight: '50г', description: 'Классический чесночный соус' },
+      { id: 19, name: 'Соус ткемали', price: 60, weight: '50г', description: 'Грузинский сливовый соус' },
+      { id: 20, name: 'Аджика', price: 55, weight: '50г', description: 'Острая приправа' },
+      { id: 21, name: 'Сацебели', price: 60, weight: '50г', description: 'Томатный соус с пряностями' },
+      { id: 22, name: 'Тахини', price: 65, weight: '50г', description: 'Кунжутная паста' },
+      { id: 23, name: 'Баже', price: 70, weight: '50г', description: 'Ореховый соус' }
+    ]
+  };
 
   const specialOffers = [
-    { id: 1, title: 'Скидка 20% на говядину', description: 'При покупке от 3 кг', discount: '20%' },
-    { id: 2, title: 'Бесплатная доставка', description: 'При заказе от 5000 ₽', discount: '0₽' },
-    { id: 3, title: 'Набор для шашлыка', description: 'Специальная цена', discount: '-30%' }
-  ];
-
-  const loyaltyLevels = [
-    { level: 'Серебро', discount: '5%', minAmount: 10000, icon: 'Medal' },
-    { level: 'Золото', discount: '10%', minAmount: 50000, icon: 'Award' },
-    { level: 'Платина', discount: '15%', minAmount: 100000, icon: 'Crown' }
+    { id: 1, title: 'Комбо "Шашлычное"', description: 'Шашлык + гарнир + напиток', discount: '-20%' },
+    { id: 2, title: 'Бесплатная доставка', description: 'При заказе от 1500 ₽', discount: '0₽' },
+    { id: 3, title: 'Счастливые часы', description: 'Скидка 15% с 14:00 до 16:00', discount: '-15%' }
   ];
 
   return (
@@ -60,8 +53,8 @@ const Index = () => {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Icon name="Beef" className="h-8 w-8 text-primary" />
-            <span className="text-2xl font-bold text-primary">PrimeMeat</span>
+            <Icon name="Flame" className="h-8 w-8 text-primary" />
+            <span className="text-2xl font-bold text-primary">Ареал</span>
           </div>
           
           <nav className="hidden md:flex items-center gap-6">
@@ -72,10 +65,10 @@ const Index = () => {
               Главная
             </button>
             <button 
-              onClick={() => setActiveSection('catalog')} 
-              className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'catalog' ? 'text-primary' : 'text-muted-foreground'}`}
+              onClick={() => setActiveSection('menu')} 
+              className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'menu' ? 'text-primary' : 'text-muted-foreground'}`}
             >
-              Каталог
+              Меню
             </button>
             <button 
               onClick={() => setActiveSection('delivery')} 
@@ -87,13 +80,7 @@ const Index = () => {
               onClick={() => setActiveSection('about')} 
               className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'about' ? 'text-primary' : 'text-muted-foreground'}`}
             >
-              О компании
-            </button>
-            <button 
-              onClick={() => setActiveSection('loyalty')} 
-              className={`text-sm font-medium transition-colors hover:text-primary ${activeSection === 'loyalty' ? 'text-primary' : 'text-muted-foreground'}`}
-            >
-              Программа лояльности
+              О нас
             </button>
             <button 
               onClick={() => setActiveSection('contacts')} 
@@ -107,7 +94,7 @@ const Index = () => {
             <Button variant="ghost" size="icon">
               <Icon name="ShoppingCart" className="h-5 w-5" />
             </Button>
-            <Button>Войти</Button>
+            <Button>Заказать</Button>
           </div>
         </div>
       </header>
@@ -119,24 +106,24 @@ const Index = () => {
               <div 
                 className="absolute inset-0 bg-cover bg-center"
                 style={{
-                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/7004dd2f-3078-4cee-8f20-dca61ed59a3c.jpg')`
+                  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg')`
                 }}
               />
               <div className="container relative z-10 text-center text-white animate-fade-in">
                 <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                  Премиальное мясо<br />для истинных ценителей
+                  Кавказская кухня<br />с доставкой на дом
                 </h1>
                 <p className="text-xl md:text-2xl mb-8 text-gray-200">
-                  Свежесть, качество и вкус в каждом кусочке
+                  Шашлыки на углях, сочная шаурма и горячие блюда
                 </p>
                 <div className="flex gap-4 justify-center">
-                  <Button size="lg" className="text-lg px-8" onClick={() => setActiveSection('catalog')}>
-                    <Icon name="ShoppingBag" className="mr-2 h-5 w-5" />
-                    Перейти в каталог
+                  <Button size="lg" className="text-lg px-8" onClick={() => setActiveSection('menu')}>
+                    <Icon name="UtensilsCrossed" className="mr-2 h-5 w-5" />
+                    Смотреть меню
                   </Button>
                   <Button size="lg" variant="secondary" className="text-lg px-8">
                     <Icon name="Phone" className="mr-2 h-5 w-5" />
-                    Связаться с нами
+                    +7 (495) 123-45-67
                   </Button>
                 </div>
               </div>
@@ -161,7 +148,7 @@ const Index = () => {
                         <CardDescription className="text-base">{offer.description}</CardDescription>
                       </CardHeader>
                       <CardFooter>
-                        <Button className="w-full">Подробнее</Button>
+                        <Button className="w-full">Заказать</Button>
                       </CardFooter>
                     </Card>
                   ))}
@@ -171,42 +158,93 @@ const Index = () => {
 
             <section className="py-16">
               <div className="container">
-                <h2 className="text-4xl font-bold text-center mb-12">Популярные товары</h2>
+                <h2 className="text-4xl font-bold text-center mb-12">Популярные блюда</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {products.map((product, index) => (
-                    <Card 
-                      key={product.id} 
-                      className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in"
-                      style={{ animationDelay: `${index * 0.1}s` }}
-                    >
-                      <div className="relative h-48 overflow-hidden">
-                        <img 
-                          src={product.image} 
-                          alt={product.name}
-                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                        />
-                        {product.badge && (
-                          <Badge className="absolute top-3 right-3 bg-secondary text-white">
-                            {product.badge}
-                          </Badge>
-                        )}
-                      </div>
-                      <CardHeader>
-                        <CardTitle>{product.name}</CardTitle>
-                        <CardDescription>{product.category}</CardDescription>
-                      </CardHeader>
-                      <CardFooter className="flex justify-between items-center">
-                        <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
-                        <Button size="sm">
-                          <Icon name="Plus" className="h-4 w-4" />
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  ))}
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in">
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
+                        alt="Шашлык"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <Badge className="absolute top-3 right-3 bg-secondary text-white">Хит</Badge>
+                    </div>
+                    <CardHeader>
+                      <CardTitle>Шашлык из свинины</CardTitle>
+                      <CardDescription>Сочное мясо на углях • 200г</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between items-center">
+                      <span className="text-2xl font-bold text-primary">450 ₽</span>
+                      <Button size="sm">
+                        <Icon name="Plus" className="h-4 w-4" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/6478e112-6cd0-4fcb-9a47-86786f10264b.jpg"
+                        alt="Шаурма"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <Badge className="absolute top-3 right-3 bg-secondary text-white">Популярное</Badge>
+                    </div>
+                    <CardHeader>
+                      <CardTitle>Шаурма куриная</CardTitle>
+                      <CardDescription>С овощами и соусом • 350г</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between items-center">
+                      <span className="text-2xl font-bold text-primary">250 ₽</span>
+                      <Button size="sm">
+                        <Icon name="Plus" className="h-4 w-4" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
+                        alt="Плов"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle>Плов узбекский</CardTitle>
+                      <CardDescription>С бараниной • 350г</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between items-center">
+                      <span className="text-2xl font-bold text-primary">320 ₽</span>
+                      <Button size="sm">
+                        <Icon name="Plus" className="h-4 w-4" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
+
+                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
+                        alt="Люля-кебаб"
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                    </div>
+                    <CardHeader>
+                      <CardTitle>Люля-кебаб</CardTitle>
+                      <CardDescription>Рубленое мясо • 150г</CardDescription>
+                    </CardHeader>
+                    <CardFooter className="flex justify-between items-center">
+                      <span className="text-2xl font-bold text-primary">350 ₽</span>
+                      <Button size="sm">
+                        <Icon name="Plus" className="h-4 w-4" />
+                      </Button>
+                    </CardFooter>
+                  </Card>
                 </div>
                 <div className="text-center mt-8">
-                  <Button size="lg" variant="outline" onClick={() => setActiveSection('catalog')}>
-                    Смотреть весь каталог
+                  <Button size="lg" variant="outline" onClick={() => setActiveSection('menu')}>
+                    Полное меню
                     <Icon name="ArrowRight" className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -215,64 +253,112 @@ const Index = () => {
           </>
         )}
 
-        {activeSection === 'catalog' && (
+        {activeSection === 'menu' && (
           <section className="py-16">
             <div className="container">
-              <h1 className="text-5xl font-bold mb-8 animate-fade-in">Каталог продукции</h1>
+              <h1 className="text-5xl font-bold mb-8 animate-fade-in">Меню</h1>
               
-              <Tabs defaultValue="all" className="w-full">
+              <Tabs defaultValue="shashlik" className="w-full">
                 <TabsList className="grid w-full grid-cols-4 mb-8">
-                  <TabsTrigger value="all">Все товары</TabsTrigger>
-                  <TabsTrigger value="beef">Говядина</TabsTrigger>
-                  <TabsTrigger value="pork">Свинина</TabsTrigger>
-                  <TabsTrigger value="chicken">Птица</TabsTrigger>
+                  <TabsTrigger value="shashlik">Шашлыки</TabsTrigger>
+                  <TabsTrigger value="shawarma">Шаурма</TabsTrigger>
+                  <TabsTrigger value="hot">Горячие блюда</TabsTrigger>
+                  <TabsTrigger value="sauces">Соусы</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="all" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {products.map((product, index) => (
+                <TabsContent value="shashlik" className="mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {menuItems.shashlik.map((item, index) => (
                       <Card 
-                        key={product.id} 
-                        className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in"
+                        key={item.id} 
+                        className="hover:shadow-xl transition-all duration-300 animate-fade-in"
                         style={{ animationDelay: `${index * 0.05}s` }}
                       >
-                        <div className="relative h-48 overflow-hidden">
-                          <img 
-                            src={product.image} 
-                            alt={product.name}
-                            className="w-full h-full object-cover"
-                          />
-                          {product.badge && (
-                            <Badge className="absolute top-3 right-3 bg-secondary">
-                              {product.badge}
-                            </Badge>
-                          )}
-                        </div>
                         <CardHeader>
-                          <CardTitle>{product.name}</CardTitle>
-                          <CardDescription>{product.category}</CardDescription>
+                          <CardTitle className="flex items-start justify-between">
+                            <span>{item.name}</span>
+                            <Icon name="Flame" className="h-5 w-5 text-primary flex-shrink-0" />
+                          </CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                          <Badge variant="secondary" className="w-fit mt-2">{item.weight}</Badge>
                         </CardHeader>
                         <CardFooter className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
+                          <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
                           <Button>В корзину</Button>
                         </CardFooter>
                       </Card>
                     ))}
                   </div>
                 </TabsContent>
-                <TabsContent value="beef">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {products.filter(p => p.category === 'Говядина').map((product) => (
-                      <Card key={product.id} className="overflow-hidden">
-                        <div className="relative h-48 overflow-hidden">
-                          <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
-                        </div>
+
+                <TabsContent value="shawarma" className="mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {menuItems.shawarma.map((item, index) => (
+                      <Card 
+                        key={item.id} 
+                        className="hover:shadow-xl transition-all duration-300 animate-fade-in"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                      >
                         <CardHeader>
-                          <CardTitle>{product.name}</CardTitle>
-                          <CardDescription>{product.category}</CardDescription>
+                          <CardTitle className="flex items-start justify-between">
+                            <span>{item.name}</span>
+                            <Icon name="Cookie" className="h-5 w-5 text-primary flex-shrink-0" />
+                          </CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                          <Badge variant="secondary" className="w-fit mt-2">{item.weight}</Badge>
                         </CardHeader>
                         <CardFooter className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-primary">{product.price} ₽</span>
+                          <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
+                          <Button>В корзину</Button>
+                        </CardFooter>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="hot" className="mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {menuItems.hot.map((item, index) => (
+                      <Card 
+                        key={item.id} 
+                        className="hover:shadow-xl transition-all duration-300 animate-fade-in"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                      >
+                        <CardHeader>
+                          <CardTitle className="flex items-start justify-between">
+                            <span>{item.name}</span>
+                            <Icon name="ChefHat" className="h-5 w-5 text-primary flex-shrink-0" />
+                          </CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                          <Badge variant="secondary" className="w-fit mt-2">{item.weight}</Badge>
+                        </CardHeader>
+                        <CardFooter className="flex justify-between items-center">
+                          <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
+                          <Button>В корзину</Button>
+                        </CardFooter>
+                      </Card>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="sauces" className="mt-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {menuItems.sauces.map((item, index) => (
+                      <Card 
+                        key={item.id} 
+                        className="hover:shadow-xl transition-all duration-300 animate-fade-in"
+                        style={{ animationDelay: `${index * 0.05}s` }}
+                      >
+                        <CardHeader>
+                          <CardTitle className="flex items-start justify-between">
+                            <span>{item.name}</span>
+                            <Icon name="Droplet" className="h-5 w-5 text-primary flex-shrink-0" />
+                          </CardTitle>
+                          <CardDescription>{item.description}</CardDescription>
+                          <Badge variant="secondary" className="w-fit mt-2">{item.weight}</Badge>
+                        </CardHeader>
+                        <CardFooter className="flex justify-between items-center">
+                          <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
                           <Button>В корзину</Button>
                         </CardFooter>
                       </Card>
@@ -288,33 +374,25 @@ const Index = () => {
           <section className="py-16">
             <div className="container max-w-4xl">
               <h1 className="text-5xl font-bold mb-12 animate-fade-in">Доставка</h1>
-              
-              <div className="mb-12">
-                <img 
-                  src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/491cc36b-8e74-4840-bee4-f8d31e5dc41e.jpg"
-                  alt="Доставка"
-                  className="w-full h-64 object-cover rounded-lg shadow-lg animate-scale-in"
-                />
-              </div>
 
               <div className="grid md:grid-cols-3 gap-6 mb-12">
                 <Card className="text-center animate-fade-in">
                   <CardHeader>
-                    <Icon name="Truck" className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <CardTitle>Быстрая доставка</CardTitle>
+                    <Icon name="Clock" className="h-12 w-12 mx-auto mb-4 text-primary" />
+                    <CardTitle>45-60 минут</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">Доставим ваш заказ в течение 2-4 часов</p>
+                    <p className="text-muted-foreground">Среднее время доставки по городу</p>
                   </CardContent>
                 </Card>
 
                 <Card className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
                   <CardHeader>
-                    <Icon name="Snowflake" className="h-12 w-12 mx-auto mb-4 text-primary" />
-                    <CardTitle>Холодильник</CardTitle>
+                    <Icon name="Truck" className="h-12 w-12 mx-auto mb-4 text-primary" />
+                    <CardTitle>Бесплатно от 1500₽</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">Специальный транспорт с холодильными камерами</p>
+                    <p className="text-muted-foreground">Доставка при заказе от 1500 рублей</p>
                   </CardContent>
                 </Card>
 
@@ -324,7 +402,7 @@ const Index = () => {
                     <CardTitle>По всему городу</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">Доставляем по всем районам города</p>
+                    <p className="text-muted-foreground">Доставляем во все районы</p>
                   </CardContent>
                 </Card>
               </div>
@@ -338,21 +416,21 @@ const Index = () => {
                     <Icon name="Check" className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Бесплатная доставка</p>
-                      <p className="text-muted-foreground">При заказе от 5000 ₽</p>
+                      <p className="text-muted-foreground">При заказе от 1500 ₽</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Icon name="Check" className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Стоимость доставки</p>
-                      <p className="text-muted-foreground">300 ₽ для заказов до 5000 ₽</p>
+                      <p className="text-muted-foreground">200 ₽ для заказов до 1500 ₽</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Icon name="Check" className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">График работы</p>
-                      <p className="text-muted-foreground">Ежедневно с 9:00 до 21:00</p>
+                      <p className="text-muted-foreground">Ежедневно с 11:00 до 23:00</p>
                     </div>
                   </div>
                 </CardContent>
@@ -364,18 +442,18 @@ const Index = () => {
         {activeSection === 'about' && (
           <section className="py-16">
             <div className="container max-w-4xl">
-              <h1 className="text-5xl font-bold mb-12 animate-fade-in">О компании</h1>
+              <h1 className="text-5xl font-bold mb-12 animate-fade-in">О нас</h1>
               
               <Card className="mb-8 animate-scale-in">
                 <CardContent className="pt-6">
                   <p className="text-lg leading-relaxed mb-4">
-                    <strong className="text-primary">PrimeMeat</strong> — это ваш надежный партнер в мире премиального мяса. 
-                    Мы работаем с лучшими фермерскими хозяйствами и поставщиками, чтобы обеспечить вас 
-                    продукцией высочайшего качества.
+                    <strong className="text-primary">Кафе "Ареал"</strong> — это место, где традиции кавказской кухни 
+                    встречаются с современным сервисом. Мы готовим шашлыки на настоящих углях, 
+                    используем только свежие продукты и следуем аутентичным рецептам.
                   </p>
                   <p className="text-lg leading-relaxed mb-4">
-                    Наша миссия — сделать премиальное мясо доступным для каждого, кто ценит качество и вкус. 
-                    Мы тщательно отбираем каждый продукт и гарантируем его свежесть.
+                    Наша команда поваров имеет многолетний опыт работы и знает все секреты приготовления 
+                    идеального шашлыка, ароматного плова и сочной шаурмы.
                   </p>
                 </CardContent>
               </Card>
@@ -383,96 +461,25 @@ const Index = () => {
               <div className="grid md:grid-cols-3 gap-6">
                 <Card className="text-center animate-fade-in">
                   <CardHeader>
-                    <div className="text-4xl font-bold text-primary mb-2">5+</div>
-                    <CardTitle>Лет на рынке</CardTitle>
+                    <div className="text-4xl font-bold text-primary mb-2">7+</div>
+                    <CardTitle>Лет работы</CardTitle>
                   </CardHeader>
                 </Card>
 
                 <Card className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>
                   <CardHeader>
-                    <div className="text-4xl font-bold text-primary mb-2">10k+</div>
-                    <CardTitle>Довольных клиентов</CardTitle>
+                    <div className="text-4xl font-bold text-primary mb-2">15k+</div>
+                    <CardTitle>Довольных гостей</CardTitle>
                   </CardHeader>
                 </Card>
 
                 <Card className="text-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
                   <CardHeader>
-                    <div className="text-4xl font-bold text-primary mb-2">100+</div>
-                    <CardTitle>Видов продукции</CardTitle>
+                    <div className="text-4xl font-bold text-primary mb-2">50+</div>
+                    <CardTitle>Блюд в меню</CardTitle>
                   </CardHeader>
                 </Card>
               </div>
-            </div>
-          </section>
-        )}
-
-        {activeSection === 'loyalty' && (
-          <section className="py-16 bg-muted/50">
-            <div className="container max-w-5xl">
-              <h1 className="text-5xl font-bold mb-4 text-center animate-fade-in">Программа лояльности</h1>
-              <p className="text-xl text-center text-muted-foreground mb-12">
-                Покупайте больше — получайте больше выгод!
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6 mb-12">
-                {loyaltyLevels.map((level, index) => (
-                  <Card 
-                    key={level.level} 
-                    className="text-center hover:shadow-xl transition-all duration-300 hover:scale-105 animate-scale-in border-2 border-primary/30"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
-                    <CardHeader>
-                      <Icon name={level.icon as any} className="h-16 w-16 mx-auto mb-4 text-primary" />
-                      <CardTitle className="text-3xl mb-2">{level.level}</CardTitle>
-                      <div className="text-4xl font-bold text-primary mb-4">{level.discount}</div>
-                      <CardDescription className="text-base">
-                        Покупок на сумму от {level.minAmount.toLocaleString()} ₽
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
-
-              <Card className="animate-fade-in">
-                <CardHeader>
-                  <CardTitle className="text-2xl">Как это работает?</CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                      1
-                    </div>
-                    <div>
-                      <p className="font-semibold">Регистрируйтесь</p>
-                      <p className="text-muted-foreground">Создайте аккаунт и получите карту участника программы</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                      2
-                    </div>
-                    <div>
-                      <p className="font-semibold">Совершайте покупки</p>
-                      <p className="text-muted-foreground">Накапливайте сумму покупок для перехода на новые уровни</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center flex-shrink-0 font-bold">
-                      3
-                    </div>
-                    <div>
-                      <p className="font-semibold">Получайте скидки</p>
-                      <p className="text-muted-foreground">Скидка применяется автоматически ко всем вашим заказам</p>
-                    </div>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Button size="lg" className="w-full">
-                    <Icon name="UserPlus" className="mr-2 h-5 w-5" />
-                    Присоединиться к программе
-                  </Button>
-                </CardFooter>
-              </Card>
             </div>
           </section>
         )}
@@ -503,7 +510,7 @@ const Index = () => {
                       </div>
                       <div>
                         <p className="font-semibold">Email</p>
-                        <p className="text-muted-foreground">info@primemeat.ru</p>
+                        <p className="text-muted-foreground">info@cafe-arel.ru</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -512,7 +519,7 @@ const Index = () => {
                       </div>
                       <div>
                         <p className="font-semibold">Адрес</p>
-                        <p className="text-muted-foreground">г. Москва, ул. Мясницкая, д. 15</p>
+                        <p className="text-muted-foreground">г. Москва, ул. Центральная, д. 25</p>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -521,7 +528,7 @@ const Index = () => {
                       </div>
                       <div>
                         <p className="font-semibold">Режим работы</p>
-                        <p className="text-muted-foreground">Ежедневно с 9:00 до 21:00</p>
+                        <p className="text-muted-foreground">Ежедневно с 11:00 до 23:00</p>
                       </div>
                     </div>
                   </CardContent>
@@ -529,7 +536,7 @@ const Index = () => {
 
                 <Card className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
                   <CardHeader>
-                    <CardTitle className="text-2xl">Напишите нам</CardTitle>
+                    <CardTitle className="text-2xl">Оставьте заявку</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <form className="space-y-4">
@@ -550,15 +557,15 @@ const Index = () => {
                         />
                       </div>
                       <div>
-                        <label className="text-sm font-medium mb-2 block">Сообщение</label>
+                        <label className="text-sm font-medium mb-2 block">Комментарий</label>
                         <textarea 
                           rows={4}
                           className="w-full px-4 py-2 border border-input rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                          placeholder="Ваше сообщение"
+                          placeholder="Ваш комментарий к заказу"
                         />
                       </div>
                       <Button type="submit" className="w-full" size="lg">
-                        Отправить сообщение
+                        Отправить заявку
                       </Button>
                     </form>
                   </CardContent>
@@ -574,42 +581,42 @@ const Index = () => {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <Icon name="Beef" className="h-8 w-8" />
-                <span className="text-2xl font-bold">PrimeMeat</span>
+                <Icon name="Flame" className="h-8 w-8" />
+                <span className="text-2xl font-bold">Ареал</span>
               </div>
               <p className="text-sm opacity-80">
-                Премиальное мясо для истинных ценителей качества
+                Кавказская кухня с доставкой на дом
               </p>
             </div>
             <div>
-              <h3 className="font-semibold mb-4">Каталог</h3>
+              <h3 className="font-semibold mb-4">Меню</h3>
               <ul className="space-y-2 text-sm opacity-80">
-                <li>Говядина</li>
-                <li>Свинина</li>
-                <li>Птица</li>
-                <li>Деликатесы</li>
+                <li>Шашлыки</li>
+                <li>Шаурма</li>
+                <li>Горячие блюда</li>
+                <li>Соусы</li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Информация</h3>
               <ul className="space-y-2 text-sm opacity-80">
-                <li>О компании</li>
+                <li>О нас</li>
                 <li>Доставка</li>
                 <li>Оплата</li>
-                <li>Программа лояльности</li>
+                <li>Акции</li>
               </ul>
             </div>
             <div>
               <h3 className="font-semibold mb-4">Контакты</h3>
               <ul className="space-y-2 text-sm opacity-80">
                 <li>+7 (495) 123-45-67</li>
-                <li>info@primemeat.ru</li>
-                <li>г. Москва, ул. Мясницкая, 15</li>
+                <li>info@cafe-arel.ru</li>
+                <li>г. Москва, ул. Центральная, 25</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-background/20 pt-8 text-center text-sm opacity-80">
-            © 2024 PrimeMeat. Все права защищены.
+            © 2024 Кафе "Ареал". Все права защищены.
           </div>
         </div>
       </footer>
