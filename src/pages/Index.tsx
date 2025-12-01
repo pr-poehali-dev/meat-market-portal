@@ -10,36 +10,122 @@ const Index = () => {
 
   const menuItems = {
     shashlik: [
-      { id: 1, name: 'Шашлык из свинины', price: 450, weight: '200г', description: 'Сочное мясо, маринованное в специях' },
-      { id: 2, name: 'Шашлык из курицы', price: 380, weight: '200г', description: 'Нежная куриная грудка на углях' },
-      { id: 3, name: 'Шашлык из баранины', price: 520, weight: '200г', description: 'Классический кавказский шашлык' },
-      { id: 4, name: 'Шашлык из говядины', price: 490, weight: '200г', description: 'Премиальная говяжья вырезка' },
-      { id: 5, name: 'Люля-кебаб', price: 350, weight: '150г', description: 'Рубленое мясо с пряностями' },
-      { id: 6, name: 'Шашлык ассорти', price: 650, weight: '300г', description: 'Микс из разных видов мяса' }
+      { 
+        id: 1, 
+        name: 'Шашлык из свиной шеи', 
+        price: 520, 
+        weight: '250 г.', 
+        description: 'Попробуйте наш шашлык из свиной шеи! Сочное мясо, предварительно замаринованное с ароматными специями, луком и зеленью, приготовлено на мангале. Это блюдо относится к категории Блюда на мангале и точно придётся по вкусу любителям классических шашлыков',
+        image: 'https://cdn.poehali.dev/files/9bdb683a-cf99-4637-872e-07e91b038668.png'
+      },
+      { 
+        id: 2, 
+        name: 'Шашлык из свиных ребер', 
+        price: 450, 
+        weight: '250 г.', 
+        description: 'Сочные свиные ребра, приготовленные на мангале до румяной аппетитной корочки. Фирменный маринад придает неповторимый вкус этому блюду. Попробуйте!',
+        image: 'https://cdn.poehali.dev/files/9bdb683a-cf99-4637-872e-07e91b038668.png'
+      },
+      { 
+        id: 3, 
+        name: 'Шашлык из свиной корейки стейк', 
+        price: 750, 
+        weight: '400 г.', 
+        description: 'Нежная свиная корейка, прожаренная до идеальной сочности. Эти стейки, пожаренные на мангале, никого не оставят равнодушным!',
+        image: 'https://cdn.poehali.dev/files/9bdb683a-cf99-4637-872e-07e91b038668.png'
+      },
+      { 
+        id: 4, 
+        name: 'Шашлык из куриной голени', 
+        price: 400, 
+        weight: '250 г.', 
+        description: 'Куриные ножки с хрустящей корочкой и сочной мякотью — классика мангала. В компании с лавашом, свежим луком и пикантным соусом они становятся отличным сытным блюдом. Закажите шашлык из куриной голени с доставкой или на вынос!',
+        image: 'https://cdn.poehali.dev/files/74fb3c09-0eff-470e-ba3e-f6e38f250c1a.png'
+      },
+      { 
+        id: 5, 
+        name: 'Шашлык из куриного филе', 
+        price: 420, 
+        weight: '250 г.', 
+        description: 'Мягкое куриное филе с лёгкой золотистой корочкой — нежное и сочное в каждом кусочке. Шашлык из курицы любят и взрослые, и дети. Это прекрасное блюдо для тех, кто считает калории. Подаётся с лавашом, маринованным луком и шашлычным соусом.',
+        image: 'https://cdn.poehali.dev/files/74fb3c09-0eff-470e-ba3e-f6e38f250c1a.png'
+      },
+      { 
+        id: 6, 
+        name: 'Шашлык из куриных крылышек', 
+        price: 400, 
+        weight: '250 г.', 
+        description: 'Аппетитные куриные крылышки с золотистой корочкой и насыщенным ароматом специй. Фирменный маринад придает неповторимый пикантный вкус, который запомнится вам надолго!',
+        image: 'https://cdn.poehali.dev/files/74fb3c09-0eff-470e-ba3e-f6e38f250c1a.png'
+      },
+      { 
+        id: 7, 
+        name: 'Люля-кебаб из курицы', 
+        price: 450, 
+        weight: '250 г.', 
+        description: 'Сочный куриный люля-кебаб с ароматными специями, приготовленный на углях. Идеально подходит для тех, кто любит нежное мясо с лёгкой дымной ноткой.',
+        image: 'https://cdn.poehali.dev/files/74fb3c09-0eff-470e-ba3e-f6e38f250c1a.png'
+      },
+      { 
+        id: 8, 
+        name: 'Шашлык из бараньей мякоти', 
+        price: 720, 
+        weight: '250 г.', 
+        description: 'Нежные кусочки отборной бараньей мякоти, пропитанные специями и ароматом мангала. В каждом кусочке — настоящий вкус кавказского шашлыка.',
+        image: 'https://cdn.poehali.dev/files/3a455f63-58ec-4afa-929c-04e46d94532b.png'
+      },
+      { 
+        id: 9, 
+        name: 'Шашлык из бараньей корейки', 
+        price: 830, 
+        weight: '250 г.', 
+        description: 'Нежная баранья корейка, которая тает во рту после жарки на мангале. Вкус мяса дополняют свежий лаваш, острый лук и пикантный шашлычный соус. Отличный выбор для тех, кто ценит насыщенный мясной вкус.',
+        image: 'https://cdn.poehali.dev/files/3a455f63-58ec-4afa-929c-04e46d94532b.png'
+      },
+      { 
+        id: 10, 
+        name: 'Шашлык из бараньих ребер', 
+        price: 550, 
+        weight: '250 г.', 
+        description: 'Шашлык из бараньих рёбер готовится из мяса молодого барашка и маринуется по фирменному рецепту с пряностями и свежим луком. Благодаря такому рецепту рёбра получаются мягкими, сочными и сохраняют свой натуральный вкус. Отлично подходит и как основное блюдо, и как аппетитная закуска к пенному.',
+        image: 'https://cdn.poehali.dev/files/3a455f63-58ec-4afa-929c-04e46d94532b.png'
+      },
+      { 
+        id: 11, 
+        name: 'Люля-кебаб из баранины', 
+        price: 590, 
+        weight: '250 г.', 
+        description: 'Люля-кебаб из баранины — это ароматное блюдо из рубленого мяса барашка с луком и набором восточных специй. На мангале люля обретает аппетистную корочку, внутри остаётся нежным и сочным. Пряный вкус баранины и дымок углей создают яркое, запоминающееся сочетание.',
+        image: 'https://cdn.poehali.dev/files/3a455f63-58ec-4afa-929c-04e46d94532b.png'
+      },
+      { 
+        id: 12, 
+        name: 'Люля-кебаб из говядины', 
+        price: 550, 
+        weight: '250 г.', 
+        description: 'Люля-кебаб из говядины — это сочный фарш из отборного мяса, смешанный с луком и специями, нанизанный на шампур и обжаренный на углях. Благодаря такому способу приготовления он получается нежным внутри и слегка поджаренным снаружи. Аромат дымка и пряности делают этот люля-кебаб особенно вкусным и сытным.',
+        image: 'https://cdn.poehali.dev/files/3a455f63-58ec-4afa-929c-04e46d94532b.png'
+      },
+      { 
+        id: 13, 
+        name: 'Шашлык по-карски', 
+        price: 620, 
+        weight: '250 г.', 
+        description: 'Шашлык по-карски — это сочная свиная шея, приготовленная вместе с болгарским перцем, помидорами и луком. К мясу подаём свежий лаваш, маринованный лук и ароматный шашлычный соус. Простое и вкусное блюдо для настоящего застолья.',
+        image: 'https://cdn.poehali.dev/files/e2d945d9-02c3-461a-bede-8edc80fb4a92.png'
+      },
+      { 
+        id: 14, 
+        name: 'Шашлык из куриного бедра', 
+        price: 420, 
+        weight: '250 г.', 
+        description: 'Шашлык из нежной части курочки, бедро без кости',
+        image: 'https://cdn.poehali.dev/files/e2d945d9-02c3-461a-bede-8edc80fb4a92.png'
+      }
     ],
-    shawarma: [
-      { id: 7, name: 'Шаурма куриная', price: 250, weight: '350г', description: 'С курицей, овощами и соусом' },
-      { id: 8, name: 'Шаурма говяжья', price: 280, weight: '350г', description: 'С говядиной и свежими овощами' },
-      { id: 9, name: 'Шаурма острая', price: 270, weight: '350г', description: 'Острый соус и специи' },
-      { id: 10, name: 'Шаурма вегетарианская', price: 220, weight: '300г', description: 'Овощи на гриле с соусом' },
-      { id: 11, name: 'Шаурма мега', price: 350, weight: '500г', description: 'Двойная порция мяса' }
-    ],
-    hot: [
-      { id: 12, name: 'Плов узбекский', price: 320, weight: '350г', description: 'Классический плов с бараниной' },
-      { id: 13, name: 'Лагман', price: 290, weight: '400г', description: 'Лапша с мясом и овощами' },
-      { id: 14, name: 'Манты', price: 280, weight: '250г', description: 'Паровые манты с мясом' },
-      { id: 15, name: 'Хинкали', price: 260, weight: '250г', description: 'Грузинские хинкали с сочной начинкой' },
-      { id: 16, name: 'Долма', price: 240, weight: '200г', description: 'Виноградные листья с начинкой' },
-      { id: 17, name: 'Харчо', price: 220, weight: '350г', description: 'Острый грузинский суп' }
-    ],
-    sauces: [
-      { id: 18, name: 'Соус чесночный', price: 50, weight: '50г', description: 'Классический чесночный соус' },
-      { id: 19, name: 'Соус ткемали', price: 60, weight: '50г', description: 'Грузинский сливовый соус' },
-      { id: 20, name: 'Аджика', price: 55, weight: '50г', description: 'Острая приправа' },
-      { id: 21, name: 'Сацебели', price: 60, weight: '50г', description: 'Томатный соус с пряностями' },
-      { id: 22, name: 'Тахини', price: 65, weight: '50г', description: 'Кунжутная паста' },
-      { id: 23, name: 'Баже', price: 70, weight: '50г', description: 'Ореховый соус' }
-    ]
+    shawarma: [],
+    hot: [],
+    sauces: []
   };
 
   const specialOffers = [
@@ -160,87 +246,28 @@ const Index = () => {
               <div className="container">
                 <h2 className="text-4xl font-bold text-center mb-12">Популярные блюда</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in">
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
-                        alt="Шашлык"
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
-                      <Badge className="absolute top-3 right-3 bg-secondary text-white">Хит</Badge>
-                    </div>
-                    <CardHeader>
-                      <CardTitle>Шашлык из свинины</CardTitle>
-                      <CardDescription>Сочное мясо на углях • 200г</CardDescription>
-                    </CardHeader>
-                    <CardFooter className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-primary">450 ₽</span>
-                      <Button size="sm">
-                        <Icon name="Plus" className="h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/6478e112-6cd0-4fcb-9a47-86786f10264b.jpg"
-                        alt="Шаурма"
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
-                      <Badge className="absolute top-3 right-3 bg-secondary text-white">Популярное</Badge>
-                    </div>
-                    <CardHeader>
-                      <CardTitle>Шаурма куриная</CardTitle>
-                      <CardDescription>С овощами и соусом • 350г</CardDescription>
-                    </CardHeader>
-                    <CardFooter className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-primary">250 ₽</span>
-                      <Button size="sm">
-                        <Icon name="Plus" className="h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
-                        alt="Плов"
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle>Плов узбекский</CardTitle>
-                      <CardDescription>С бараниной • 350г</CardDescription>
-                    </CardHeader>
-                    <CardFooter className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-primary">320 ₽</span>
-                      <Button size="sm">
-                        <Icon name="Plus" className="h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
-
-                  <Card className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src="https://cdn.poehali.dev/projects/78a3f817-199a-480c-a7b8-ae623457e098/files/744f0912-3e0a-4bd7-a7d8-a7454c3226f1.jpg"
-                        alt="Люля-кебаб"
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
-                    </div>
-                    <CardHeader>
-                      <CardTitle>Люля-кебаб</CardTitle>
-                      <CardDescription>Рубленое мясо • 150г</CardDescription>
-                    </CardHeader>
-                    <CardFooter className="flex justify-between items-center">
-                      <span className="text-2xl font-bold text-primary">350 ₽</span>
-                      <Button size="sm">
-                        <Icon name="Plus" className="h-4 w-4" />
-                      </Button>
-                    </CardFooter>
-                  </Card>
+                  {menuItems.shashlik.slice(0, 4).map((item, index) => (
+                    <Card key={item.id} className="overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                      <div className="relative h-48 overflow-hidden">
+                        <img 
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                        />
+                        {index === 0 && <Badge className="absolute top-3 right-3 bg-secondary text-white">Хит</Badge>}
+                      </div>
+                      <CardHeader>
+                        <CardTitle className="text-lg">{item.name}</CardTitle>
+                        <CardDescription>{item.weight}</CardDescription>
+                      </CardHeader>
+                      <CardFooter className="flex justify-between items-center">
+                        <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
+                        <Button size="sm" className="rounded-full">
+                          <Icon name="Plus" className="h-4 w-4" />
+                        </Button>
+                      </CardFooter>
+                    </Card>
+                  ))}
                 </div>
                 <div className="text-center mt-8">
                   <Button size="lg" variant="outline" onClick={() => setActiveSection('menu')}>
@@ -267,24 +294,40 @@ const Index = () => {
                 </TabsList>
                 
                 <TabsContent value="shashlik" className="mt-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {menuItems.shashlik.map((item, index) => (
                       <Card 
                         key={item.id} 
-                        className="hover:shadow-xl transition-all duration-300 animate-fade-in"
+                        className="overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in border-2"
                         style={{ animationDelay: `${index * 0.05}s` }}
                       >
+                        <div className="relative h-64 overflow-hidden">
+                          <img 
+                            src={item.image} 
+                            alt={item.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                         <CardHeader>
-                          <CardTitle className="flex items-start justify-between">
-                            <span>{item.name}</span>
-                            <Icon name="Flame" className="h-5 w-5 text-primary flex-shrink-0" />
-                          </CardTitle>
-                          <CardDescription>{item.description}</CardDescription>
-                          <Badge variant="secondary" className="w-fit mt-2">{item.weight}</Badge>
+                          <div className="flex items-start justify-between mb-3">
+                            <CardTitle className="text-2xl">{item.name}</CardTitle>
+                            <div className="flex gap-2">
+                              <button className="hover:text-primary transition-colors">
+                                <Icon name="ExternalLink" className="h-5 w-5 text-primary" />
+                              </button>
+                              <button className="hover:text-primary transition-colors">
+                                <Icon name="Heart" className="h-5 w-5 text-muted-foreground hover:text-red-500" />
+                              </button>
+                            </div>
+                          </div>
+                          <CardDescription className="text-base leading-relaxed">{item.description}</CardDescription>
+                          <Badge variant="outline" className="w-fit mt-3 border-primary text-primary">{item.weight}</Badge>
                         </CardHeader>
-                        <CardFooter className="flex justify-between items-center">
-                          <span className="text-2xl font-bold text-primary">{item.price} ₽</span>
-                          <Button>В корзину</Button>
+                        <CardFooter className="flex justify-between items-center pt-6">
+                          <span className="text-3xl font-bold text-primary">{item.price} ₽</span>
+                          <Button size="lg" className="rounded-full w-14 h-14 p-0">
+                            <Icon name="Plus" className="h-6 w-6" />
+                          </Button>
                         </CardFooter>
                       </Card>
                     ))}
